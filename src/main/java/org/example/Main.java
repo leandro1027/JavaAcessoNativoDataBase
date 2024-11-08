@@ -31,7 +31,7 @@ public class Main {
             conexao.close();
 
         }catch (SQLException erro) {
-            System.out.println("Ocorreu um erro! Entre em contato com admin");
+            System.out.println("Ocorreu um erro! Entre em contato com admin.");
         }
     }
 }
