@@ -23,6 +23,11 @@ public class Main {
             statement.setString(1, "Leandro");
             statement.setString(2, "Rua Aleatória, número 1");
 
+            int linhasAfetadas = statement.executeUpdate();
+            if (linhasAfetadas > 0) {
+                System.out.println("Inseriu com sucesso!");
+            }
+
         }catch (SQLException erro) {
             System.out.println();
         }
