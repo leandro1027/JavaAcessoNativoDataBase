@@ -27,9 +27,11 @@ public class Main {
             if (linhasAfetadas > 0) {
                 System.out.println("Inseriu com sucesso!");
             }
+            statement.close();
+            conexao.close();
 
         }catch (SQLException erro) {
-            System.out.println();
+            System.out.println("Ocorreu um erro! Entre em contato com admin");
         }
     }
 }
