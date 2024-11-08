@@ -11,7 +11,7 @@ public class Main {
         String senha = "";
 
         //comando SQL
-        String sql = "INSERT INTO aluno (nome, endereco) VALUES (?, ?)";
+        String sql = "SELECT * FROM aluno";
 
         try {
             Connection conexao = DriverManager.getConnection(url, usuario, senha);
@@ -20,13 +20,21 @@ public class Main {
             //prepara uma instrução SQL
             PreparedStatement statement = conexao.prepareStatement(sql);
 
-            statement.setString(1, "Leandro");
-            statement.setString(2, "Rua Aleatória, número 1");
+            //statement.setString(1, "Kathe");
+           //statement.setString(2, "Rua Qualquer, número ");
 
-            int linhasAfetadas = statement.executeUpdate();
-            if (linhasAfetadas > 0) {
-                System.out.println("Inseriu com sucesso!");
+            //if (linhasAfetadas > 0) {
+              //System.out.println("Inseriu com sucesso!");
+            //}
+
+            ResultSet alunos = statement.executeQuery();
+            while (alunos.next()) {
+                int id = alunos.getInt("id");
+                String nome = alunos.getString("nome");
+                String endereco = alunos.getString("endereco");
+                System.out.println(id + " - " + nome + " - " + endereco);
             }
+
             statement.close();
             conexao.close();
 
